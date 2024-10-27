@@ -1,54 +1,53 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-export function d6() {
+/**
+ * Here is a helper function you *must* use to "roll" your die.
+ * The function uses the builtin `random` function of the `Math`
+ * module (which returns a random decimal between 0 up until 1) in order
+ * to produce a random integer between 1 and 6 (inclusive).
+ */
+export function d6(): number {
     return 1 + Math.floor(Math.random() * 6);
-    
 }
 
-export function TwoDice() {
-    //Initial states
-    const [leftDie, setLeftDie] = useState(2);
-    const [rightDie, setRightDie] = useState(1);
-    const [message, setMessage] = useState("");
+export function TwoDice(): React.JSX.Element {
+    const [die1, setDie1] = useState<number>(1);
+    const [die2, setDie2] = useState<number>(6);
 
-    const checkWinLose = (left: number, right: number) => {
-
-        if (left === 1 && right === 1) {
-            setMessage("Lose");
-        } else if (left === right) {
-            setMessage("Win");
+    /*const rollDie = (die: string): void => {
+        if (die === "Left") {
+            setDie1(d6);
         } else {
-            setMessage(""); 
+            setDie2(d6);
         }
+    };*/
 
-    };
-
-    //Calls the d6 function, changes lefts value to be the result and calls the checkwinlose function
-    const rollLeft = () => {
-        const newValue = d6();  
-        setLeftDie(newValue);
-        checkWinLose(newValue, rightDie); 
-
-    };
-
-    //Calls the d6 function, changes rights value to be the result and calls the checkwinlose function
-    const rollRight = () => {
-        const newValue = d6();  
-        setRightDie(newValue);
-        checkWinLose(leftDie, newValue); 
-    };
-    
     return (
         <div>
             <div>
-                <span data-testid="left-die">{leftDie}</span>
-                <span data-testid="right-die">{rightDie}</span>
+                <Button
+                    onClick={() => {
+                        setDie1(d6);
+                    }}
+                >
+                    Roll Left
+                </Button>
+                Left Die: <span data-testid="left-die">{die1}</span>
             </div>
-            <Button onClick={rollLeft}>Roll Left</Button>
-            <Button onClick={rollRight}>Roll Right</Button>
             <div>
-                {message && <div>{message}</div>} 
+                <Button
+                    onClick={() => {
+                        setDie2(d6);
+                    }}
+                >
+                    Roll Right
+                </Button>
+                Right Die: <span data-testid="right-die">{die2}</span>
+            </div>
+            <div>
+                {die1 === die2 && die1 !== 1 && <span>Win</span>}
+                {die1 === 1 && die2 === 1 && <span>Lose</span>}
             </div>
         </div>
     );

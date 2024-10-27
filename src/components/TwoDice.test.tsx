@@ -65,23 +65,7 @@ describe("TwoDice Component tests", () => {
         expect(leftButton).toBeInTheDocument();
         expect(rightButton).toBeInTheDocument();
     });
-    test("(1 pts) Clicking left button changes first number", async () => {
-        const leftButton = screen.getByRole("button", { name: /Roll Left/i });
-        await act(async () => {
-            leftButton.click();
-        });
-        await act(async () => {
-            leftButton.click();
-        });
-        await act(async () => {
-            leftButton.click();
-        });
-        // Then the random function should be called 3 times
-        expect(mathRandomFunction).toBeCalledTimes(3);
-        // And the number to be 5
-        const leftNumber = extractDigits(screen.getByTestId("left-die"));
-        expect(leftNumber).toEqual(5);
-    });
+
     // Clicking right button changes second number
     test("(1 pts) Clicking right button changes second number", async () => {
         const rightButton = screen.getByRole("button", { name: /Roll Right/i });
@@ -99,6 +83,23 @@ describe("TwoDice Component tests", () => {
         // And the number to be 5
         const rightNumber = extractDigits(screen.getByTestId("right-die"));
         expect(rightNumber).toEqual(5);
+    });
+    test("(1 pts) Clicking left button changes first number", async () => {
+        const leftButton = screen.getByRole("button", { name: /Roll Left/i });
+        await act(async () => {
+            leftButton.click();
+        });
+        await act(async () => {
+            leftButton.click();
+        });
+        await act(async () => {
+            leftButton.click();
+        });
+        // Then the random function should be called 3 times
+        expect(mathRandomFunction).toBeCalledTimes(3);
+        // And the number to be 5
+        const leftNumber = extractDigits(screen.getByTestId("left-die"));
+        expect(leftNumber).toEqual(5);
     });
     // Rolling two different numbers does not win or lose the game
     test("(1 pts) Rolling two different numbers does not win or lose the game", async () => {
