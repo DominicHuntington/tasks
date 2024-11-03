@@ -1,14 +1,15 @@
 import React from "react";
 import "./App.css";
-<<<<<<< HEAD
 import { Col, Container, Row, Button } from "react-bootstrap";
 import catImage from "./assets/cat.jpg";
-=======
 import { ChangeType } from "./components/ChangeType";
 import { RevealAnswer } from "./components/RevealAnswer";
 import { TwoDice } from "./components/TwoDice";
 import { Counter } from "./components/Counter";
->>>>>>> upstream/task-state
+
+import { DoubleHalf } from "./bad-components/DoubleHalf";
+import { ColoredBox } from "./bad-components/ColoredBox";
+import { ChooseTeam } from "./bad-components/ChooseTeam";
 
 function App(): React.JSX.Element {
     return (
@@ -16,28 +17,26 @@ function App(): React.JSX.Element {
             <header className="App-header">
                 UM COS420 with React Hooks and TypeScript
             </header>
-<<<<<<< HEAD
 
             <h1>this is Header text</h1>
             <Container>
                 <Row>
                     <Col>
-                    <div 
+                        <div
                             style={{
-                                width: "200px", 
-                                height: "150px", 
-                                backgroundColor: "red"
+                                width: "200px",
+                                height: "150px",
+                                backgroundColor: "red",
                             }}
                         ></div>
-                        
                     </Col>
 
                     <Col>
-                    <div 
+                        <div
                             style={{
-                                width: "200px", 
-                                height: "150px", 
-                                backgroundColor: "red"
+                                width: "200px",
+                                height: "150px",
+                                backgroundColor: "red",
                             }}
                         ></div>
                         <ul>
@@ -46,20 +45,31 @@ function App(): React.JSX.Element {
                             <li> Three </li>
                         </ul>
                     </Col>
-
                 </Row>
-               
             </Container>
-            <div> 
-                <img src= {catImage} alt = "random cat jpg"/>
+            <div>
+                <img src={catImage} alt="random cat jpg" />
             </div>
-           
-            <p style ={{border:'2px solid red', padding: '4px'}}>
+
+            <p style={{ border: "2px solid red", padding: "4px" }}>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload <span style={{color:'red'}}> Dominic Huntington </span>. Hello World!!
+                automatically reload{" "}
+                <span style={{ color: "red" }}> Dominic Huntington </span>.
+                Hello World!!
             </p>
-                <Button onClick={ () => { console.log("Hello World!") } }>Log Hello World</Button>
-=======
+            <Button
+                onClick={() => {
+                    console.log("Hello World!");
+                }}
+            >
+                Log Hello World
+            </Button>
+            <hr></hr>
+            {<DoubleHalf></DoubleHalf>}
+            <hr></hr>
+            <ChooseTeam></ChooseTeam>
+            <hr></hr>
+            <ColoredBox></ColoredBox>
             <hr></hr>
             <Counter></Counter>
             <hr />
@@ -68,7 +78,6 @@ function App(): React.JSX.Element {
             <TwoDice></TwoDice>
             <hr />
             <ChangeType></ChangeType>
->>>>>>> upstream/task-state
         </div>
     );
 }
