@@ -10,18 +10,21 @@ import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
 import { ChooseTeam } from "./bad-components/ChooseTeam";
 
+
 function App(): React.JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
                 UM COS420 with React Hooks and TypeScript
             </header>
+
             <h1>header</h1>
             <ul role="list">
                 <li>One</li>
                 <li>Two</li>
                 <li>Three</li>
             </ul>
+            <h1>this is Header text</h1>
             <Container>
                 <Row>
                     <Col>
@@ -43,6 +46,7 @@ function App(): React.JSX.Element {
                             }}
                         ></div>
                     </Col>
+
                     <Col>
                         <DoubleHalf></DoubleHalf>
                         <ChooseTeam></ChooseTeam>
@@ -72,6 +76,16 @@ function App(): React.JSX.Element {
             >
                 Log Hello World
             </Button>
+
+            <hr></hr>
+            <Counter></Counter>
+            <hr />
+            <RevealAnswer></RevealAnswer>
+            <hr />
+            <TwoDice></TwoDice>
+            <hr />
+            <ChangeType></ChangeType>
+
         </div>
     );
 }
