@@ -6,7 +6,6 @@ import { ChangeType } from "./components/ChangeType";
 import { RevealAnswer } from "./components/RevealAnswer";
 import { TwoDice } from "./components/TwoDice";
 import { Counter } from "./components/Counter";
-
 import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
 import { ChooseTeam } from "./bad-components/ChooseTeam";
@@ -17,8 +16,12 @@ function App(): React.JSX.Element {
             <header className="App-header">
                 UM COS420 with React Hooks and TypeScript
             </header>
-
-            <h1>this is Header text</h1>
+            <h1>header</h1>
+            <ul role="list">
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ul>
             <Container>
                 <Row>
                     <Col>
@@ -39,11 +42,15 @@ function App(): React.JSX.Element {
                                 backgroundColor: "red",
                             }}
                         ></div>
-                        <ul>
-                            <li> One </li>
-                            <li> Two </li>
-                            <li> Three </li>
-                        </ul>
+                    </Col>
+                    <Col>
+                        <DoubleHalf></DoubleHalf>
+                        <ChooseTeam></ChooseTeam>
+                        <ColoredBox></ColoredBox>
+                        <Counter></Counter>
+                        <RevealAnswer></RevealAnswer>
+                        <TwoDice></TwoDice>
+                        <ChangeType></ChangeType>
                     </Col>
                 </Row>
             </Container>
@@ -57,6 +64,7 @@ function App(): React.JSX.Element {
                 <span style={{ color: "red" }}> Dominic Huntington </span>.
                 Hello World!!
             </p>
+
             <Button
                 onClick={() => {
                     console.log("Hello World!");
@@ -64,20 +72,6 @@ function App(): React.JSX.Element {
             >
                 Log Hello World
             </Button>
-            <hr></hr>
-            {<DoubleHalf></DoubleHalf>}
-            <hr></hr>
-            <ChooseTeam></ChooseTeam>
-            <hr></hr>
-            <ColoredBox></ColoredBox>
-            <hr></hr>
-            <Counter></Counter>
-            <hr />
-            <RevealAnswer></RevealAnswer>
-            <hr />
-            <TwoDice></TwoDice>
-            <hr />
-            <ChangeType></ChangeType>
         </div>
     );
 }
